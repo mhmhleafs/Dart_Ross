@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+<head>
+    <title>Dart Ross</title>
+    <link rel="icon" type="image/x-icon" href="assets/fav.ico">
+    <link rel="stylesheet" type="text/css" href="style.css">		
+</head>
+
+<body>
+    <header class="header_bar">
+        <h1 id="header_bar_div">
+            Dart Ross
+		</h1>
+    </header>
+    <div class="search_area">
+        <div class="search_inputs">
+            <input type="text" class="search_field"  placeholder="Enter player surname...">
+            <input type="button" id="search_button" value="Go">
+        </div>
+        <div id="search_dropdown" class="search_dropdown" style="visibility: hidden;">
+            HELLO
+        </div>
+    </div>
+
+
+    <div class="main_body">
+        <div id="headshots">
+            500
+        </div>
+        <div class="dartboard_container">
+            <table id="board">
+                <tr class = "first_row">
+                    <th>Player</th>
+                    <th>Stat</th>
+                    <th>Points</th>
+                </tr>
+            </table>
+        </div>
+        <div id="point_total">
+            500
+        </div>
+        <div id="point_target">
+            /500
+        </div>
+    </div>
+</body>
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"
+	integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="playerData.js"></script>
+<script src="data.js"></script>
+<script src="index.js"></script>
+</html>

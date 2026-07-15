@@ -1,0 +1,18 @@
+maybe every single PID is in use? Possible to just count from 1-999999?
+
+only get stats I want?
+
+https://www.nhl.com/stats/skaters?reportType=allTime&seasonFrom=19171918&seasonTo=20252026&gameType=2&filter=points,gte,1&sort=points&page=0&pageSize=100
+change "page=0" at the end and scrape entire HTML?
+change seasonTo=20252026 to current year?
+also change gameType so I can do playoff G A P, etc.?
+
+https://api.nhle.com/stats/rest/en/skater/summary?isAggregate=true&isGame=false&sort=%5B%7B%22property%22:%22points%22,%22direction%22:%22DESC%22%7D,%7B%22property%22:%22goals%22,%22direction%22:%22DESC%22%7D,%7B%22property%22:%22assists%22,%22direction%22:%22DESC%22%7D,%7B%22property%22:%22playerId%22,%22direction%22:%22ASC%22%7D%5D&start=0&limit=100&cayenneExp=gameTypeId=2%20and%20seasonId%3C=20252026%20and%20seasonId%3E=19171918
+https://api.nhle.com/stats/rest/en/skater/summary?isAggregate=true&isGame=false&sort=[{"property":"points","direction":"DESC"},{"property":"goals","direction":"DESC"},{"property":"assists","direction":"DESC"},{"property":"playerId","direction":"ASC"}]&start=0&limit=50&factCayenneExp=points>=1&cayenneExp=gameTypeId=2 and seasonId<=20252026 and seasonId>=19171918
+^actual data URL, rather than the page
+
+"start=0" means start at Gretz. Increment by 100?
+start=7700 is last full page
+
+need to scrape for goalies too
+Also get bio info? (could be fun for things like draft position, dob, height, weight, etc.)

@@ -1,0 +1,24 @@
+popup for entering a meaningless name (maybe just an error message?)
+
+create dropdown for suggested players with visibility toggled on focus? keyboard navigation too
+
+create bucket of already used players and don't allow them 
+(& don't show them in search)
+
+PLANS:
+endless mode? (no reusing players from previous rounds)
+
+specific team mode? (conference? division? no repeat teams?)
+
+era mode? (certain DOBs?)
+
+CSS
+
+Leaderboard? Just some kind of points system for fewest guys? efficiency? time???
+
+Seeds? so you get the same sequence in endless mode?
+
+pixelated headshots? Retro feel? Retro mode??
+https://stackoverflow.com/questions/19129644/how-to-pixelate-an-image-with-canvas-and-javascript
+https://www.hockey-reference.com/players/p/petteel02.html (example of D elias petey hockeyref link)
+https://www.hockey-reference.com/req/202301051/images/headshots/petteel02-2025.jpg (headshot link)

@@ -1,0 +1,79 @@
+body
+{
+	color: rgb(255, 255, 255);
+	background-color: darkblue;
+	
+}
+
+h1
+{
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+
+	color: green;
+	background-color: greenyellow;
+}
+
+p
+{
+	color: orange;
+	background-color: purple;
+}
+
+.search_area
+{
+	display: table;
+	grid-template-columns: 1fr;
+	margin: auto;
+}
+
+#search_dropdown
+{
+	color: black;
+	background-color: white;
+}
+
+.main_body
+{
+	padding-top: 2%;
+	background-color: rgb(0, 102, 255);
+	display: flex;
+
+	justify-content: center;
+	align-items: center;
+}
+
+.dartboard_container
+{
+	color: rgb(244, 244, 244);
+	background-color: rgb(0, 44, 12);
+
+	display: grid;
+
+	width: 70%;
+}
+
+#board
+{	
+	margin: 0px auto;
+}
+
+th
+{
+  text-align: center;
+  vertical-align: middle;
+}
+
+td
+{
+	text-align: center;
+	vertical-align: middle;
+}
+
+.bad_row
+{
+	color: red
+}

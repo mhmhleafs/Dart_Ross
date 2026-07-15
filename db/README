@@ -1,0 +1,7 @@
+when saving as CSV from Excel be sure to save as 'CSV UTF-8' so accents are preserved
+
+https://www.convertcsv.com/csv-to-json.htm and check "Replace Accents/Diacriticals" in Step 2
+(use 'CSV to JSON Array' if 'CSV to JSON' doesn't work, then just switch [] to {})
+
+https://csvjson.com/csv2json
+https://www.browserling.com/tools/remove-accents
