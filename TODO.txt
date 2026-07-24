@@ -1,9 +1,12 @@
-popup for entering a meaningless name (maybe just an error message?)
+popup for entering a meaningless name? (maybe just an error message?)
 
 create dropdown for suggested players with visibility toggled on focus? keyboard navigation too
+load all players into dropdown on page load? on first key entered?
 
 create bucket of already used players and don't allow them 
 (& don't show them in search)
+
+
 
 PLANS:
 endless mode? (no reusing players from previous rounds)

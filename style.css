@@ -30,12 +30,6 @@ p
 	margin: auto;
 }
 
-#search_dropdown
-{
-	color: black;
-	background-color: white;
-}
-
 .main_body
 {
 	padding-top: 2%;
@@ -77,3 +71,37 @@ td
 {
 	color: red
 }
+
+
+.dropdown_list
+{
+	position: relative;
+	display: block; 
+	visibility: hidden;
+}
+
+.dropdown_parent
+{
+	width: 33.33%;
+    float: left;
+    position: relative;
+}
+
+
+.dropdown_menu
+{
+	margin-top: 5px;
+    list-style-type: none;
+    height: 0px;
+    overflow: visible;
+	visibility: hidden;
+    position: absolute;  
+    left: 0; top: 100%;  
+    width: 100%;         
+
+}
+
+.dropdown_menu li:hover {
+	color: aqua;
+}
+

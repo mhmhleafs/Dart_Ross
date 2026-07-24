@@ -1,18 +1,3 @@
-function toggle_search_dropdown()
-{
-	console.log($("#search_dropdown").css("visibility") === "visible")
-	if($("#search_dropdown").css("visibility") === "visible")
-	{
-		console.log("make invis")
-		$("#search_dropdown").css("visibility", "hidden")
-	}
-	else
-	{
-		console.log("make vis")
-		$("#search_dropdown").css("visibility", "visible")
-	}
-}
-
 function surname(skaterFullName)
 {
 	return(skaterFullName.split(' ')[1])
@@ -25,11 +10,13 @@ $(document).ready(function()
 
 $('.search_field').on("focus", function(){
    console.log("focus")
+   $(".dropdown_menu").css("visibility", "visible")
 });
 
 //if focus not on dropdown element???
 $('.search_field').on("blur", function(){
    console.log("unfocus")
+   $(".dropdown_menu").css("visibility", "hidden")
 });
 
 //counts as clicking go if the user presses enter on the search bar
@@ -38,6 +25,10 @@ $('.search_field').on('keydown', function(event) {
 	{
         document.getElementById("search_button").click();
     }
+});
+
+$('.dropdown_item').on('mousedown', function(event) {
+    console.log($(this).text())
 });
 
 //counts as clicking go if the user presses enter on the search bar
@@ -89,12 +80,12 @@ $(document).on('click', '#search_button', function()
 	else if(foundPlayers.length > 1)
 	{
 		//TODO: add selector for multiples
-		alert("SO MANY")
+		//alert("SO MANY")
 	}
 	else if(foundPlayers.length == 0)
 	{
 		//TODO: shake the search bar and show error
-		alert("NOT FOUND")
+		//alert("NOT FOUND")
 	}
 
 	toggle_search_dropdown()
