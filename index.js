@@ -1,44 +1,41 @@
-function surname(skaterFullName)
-{
-	return(skaterFullName.split(' ')[1])
+function surname(skaterFullName) {
+	return (skaterFullName.split(' ')[1])
 }
 
-$(document).ready(function()
-{
+$(document).ready(function () {
 	console.log("ready")
+
 });
 
-$('.search_field').on("focus", function(){
-   console.log("focus")
-   $(".dropdown_menu").css("visibility", "visible")
+$('.search_field').on("focus", function () {
+	console.log("focus")
+	$(".dropdown_menu").css("visibility", "visible")
 });
 
 //if focus not on dropdown element???
-$('.search_field').on("blur", function(){
-   console.log("unfocus")
-   $(".dropdown_menu").css("visibility", "hidden")
+$('.search_field').on("blur", function () {
+	console.log("unfocus")
+	$(".dropdown_menu").css("visibility", "hidden")
 });
 
 //counts as clicking go if the user presses enter on the search bar
-$('.search_field').on('keydown', function(event) {
-    if (event.key === 'Enter') 
-	{
-        document.getElementById("search_button").click();
-    }
+$('.search_field').on('keydown', function (event) {
+	if (event.key === 'Enter') {
+		document.getElementById("search_button").click();
+	}
 });
 
-$('.dropdown_item').on('mousedown', function(event) {
-    console.log($(this).text())
+$('.dropdown_item').on('mousedown', function (event) {
+	console.log($(this).text())
 });
 
 //counts as clicking go if the user presses enter on the search bar
-$('.search_field').on('input', function(event) {
+$('.search_field').on('input', function (event) {
 	get_players(pascalify($(this).val()))
 });
 
 //main game logic when user enters their search
-$(document).on('click', '#search_button', function()
-{
+$('#search_button').on('click', function () {
 	console.log("clicked")
 
 	let playerName = pascalify($('.search_field').val())
@@ -51,8 +48,7 @@ $(document).on('click', '#search_button', function()
 	foundPlayers = get_players(playerName)
 
 	console.log(`players found: ${foundPlayers.length}`)
-	if(foundPlayers.length == 1)
-	{
+	if (foundPlayers.length == 1) {
 		console.log("found players:")
 		console.log(foundPlayers)
 
@@ -62,14 +58,12 @@ $(document).on('click', '#search_button', function()
 
 		let oob = false
 
-		if(newPoints < 0)
-		{
+		if (newPoints < 0) {
 			//set flag to add bad line if new score is over the limit
-			oob = true	
+			oob = true
 			console.log("OOB")
 		}
-		else
-		{
+		else {
 			update_score(newPoints)
 		}
 
@@ -77,17 +71,15 @@ $(document).on('click', '#search_button', function()
 
 		$('.search_field').val('')
 	}
-	else if(foundPlayers.length > 1)
-	{
+	else if (foundPlayers.length > 1) {
 		//TODO: add selector for multiples
 		//alert("SO MANY")
 	}
-	else if(foundPlayers.length == 0)
-	{
+	else if (foundPlayers.length == 0) {
 		//TODO: shake the search bar and show error
 		//alert("NOT FOUND")
 	}
 
-	toggle_search_dropdown()
+	$(".search_field").blur()
 	//accessAll("G")
 });

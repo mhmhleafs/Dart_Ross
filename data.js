@@ -1,16 +1,13 @@
-function zScore (statName)
-{
+function zScore(statName) {
 
 }
 
-function get_players (input)
-{
+function get_players(input) {
   console.log(input)
   len = input.length
   console.log(len)
   const playersByLastName = PLAYERS.filter(p => p.lastName.slice(0, len) === input)
   const playersByFullName = PLAYERS.filter(p => p.skaterFullName.slice(0, len) === input)
-
   let combinedPlayers = playersByLastName.concat(playersByFullName)
 
   //PLAYERS is already sorted by total points so no need to sort from here
@@ -20,28 +17,24 @@ function get_players (input)
 }
 
 //birth year included in case two players have same name (e.g. Elias Pettersson)
-function get_player(playerID)
-{
+function get_player(playerID) {
   const playerByID = PLAYERS.find(p => p.playerId === playerID)
   console.log(playerByID)
   return playerByID
 }
 
-function pascalify (str)
-{
-  s = str.replace(/(\w)(\w*)/g, function(g0,g1,g2){return g1.toUpperCase() + g2.toLowerCase();});
+function pascalify(str) {
+  s = str.replace(/(\w)(\w*)/g, function (g0, g1, g2) { return g1.toUpperCase() + g2.toLowerCase(); });
   return s
 }
 
-function get_player_stat(playerID, stat)
-{
+function get_player_stat(playerID, stat) {
   p = get_player(playerID)
 
   return p[stat]
 }
 
-function add_table_row(name, score, oob=false)
-{
+function add_table_row(name, score, oob = false) {
   console.log(`adding table row ${name} | ${score}`)
 
   const tableRow = document.createElement('tr')
@@ -54,12 +47,10 @@ function add_table_row(name, score, oob=false)
   tableRow.appendChild(scoreCell)
   tableRow.appendChild(totalCell)
 
-  if(oob)
-  {
+  if (oob) {
     tableRow.classList.add("bad_row")
   }
-  else
-  {
+  else {
     tableRow.classList.add("board_row")
   }
 
@@ -72,13 +63,11 @@ function add_table_row(name, score, oob=false)
 
 }
 
-function get_curr_points()
-{
+function get_curr_points() {
   return Number($('#point_total').text())
 }
 
-function subtract_points(score)
-{
+function subtract_points(score) {
   console.log("rid")
   let currentPoints = get_curr_points()
   console.log(currentPoints)
@@ -88,33 +77,27 @@ function subtract_points(score)
   const newPoints = currentPoints - score
   console.log(newPoints)
 
-  if(newPoints < 0)
-  {
+  if (newPoints < 0) {
     return -1
   }
-  else
-  {
+  else {
     return newPoints
   }
 }
 
-function update_score(newPoints)
-{
+function update_score(newPoints) {
   $('#point_total').text(newPoints)
 }
 
 //get the sum of a stat for getting the z score
-function accessAll (statName)
-{
+function accessAll(statName) {
   let sum = 0
   let count = 0
-  for (const p of PLAYERS)
-  {
+  for (const p of PLAYERS) {
     let temp = p[statName]
 
     //if they have any amount of the thing
-    if(temp)
-    {
+    if (temp) {
       console.log(p[statName])
 
       sum += temp
@@ -126,5 +109,5 @@ function accessAll (statName)
 }
 
 const STAT_CATEGORIES = [
-  {"name" : "goals", weight : 10, target : 0}
+  { "name": "goals", weight: 10, target: 0 }
 ]
