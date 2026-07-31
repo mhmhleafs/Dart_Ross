@@ -6,12 +6,20 @@ load all players into dropdown on page load? on first key entered?
 create bucket of already used players and don't allow them 
 (& don't show them in search)
 
+logic for going beyond target score (0)
+
+popup for win.
+
 
 
 PLANS:
+get current stats for current players? (try catch?)
+
 endless mode? (no reusing players from previous rounds)
 
-specific team mode? (conference? division? no repeat teams?)
+specific team mode? (conference?no repeat teams? lefties?)
+Draft positions?
+(randomize to specific options? toggle each one? e.g. check "Eras, handedness" to get 60s righties)
 
 era mode? (certain DOBs?)
 

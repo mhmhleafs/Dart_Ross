@@ -2,25 +2,29 @@ function zScore(statName) {
 
 }
 
+
+
 function get_players(input) {
   console.log(input)
   len = input.length
-  console.log(len)
   const playersByLastName = PLAYERS.filter(p => p.lastName.slice(0, len) === input)
   const playersByFullName = PLAYERS.filter(p => p.skaterFullName.slice(0, len) === input)
   let combinedPlayers = playersByLastName.concat(playersByFullName)
 
+  const playerObjects = []
+  for (const player of combinedPlayers)
+  {
+    playerObjects.push(new Player(player))
+  }
   //PLAYERS is already sorted by total points so no need to sort from here
-  console.log(combinedPlayers)
 
-  return combinedPlayers
+  return playerObjects
 }
 
-//birth year included in case two players have same name (e.g. Elias Pettersson)
-function get_player(playerID) {
-  const playerByID = PLAYERS.find(p => p.playerId === playerID)
-  console.log(playerByID)
-  return playerByID
+
+function get_player(playerId) {
+  const playerByID = PLAYERS.find(p => p.playerId === playerId)
+  return new Player(playerByID)
 }
 
 function pascalify(str) {
@@ -28,11 +32,18 @@ function pascalify(str) {
   return s
 }
 
-function get_player_stat(playerID, stat) {
-  p = get_player(playerID)
+function get_player_stat(playerId, stat) {
+  p = get_player(playerId)
 
   return p[stat]
 }
+
+function separate_clones(nameList)
+{
+  //TODO: Make it so "Petterss" shows "Elias Pettersson (C)"
+  //                              and "Elias Pettersson (D)"
+}
+function update_dropdown(nameList)
 
 function add_table_row(name, score, oob = false) {
   console.log(`adding table row ${name} | ${score}`)
@@ -68,14 +79,11 @@ function get_curr_points() {
 }
 
 function subtract_points(score) {
-  console.log("rid")
   let currentPoints = get_curr_points()
-  console.log(currentPoints)
-
-  console.log(score)
+  console.log(currentPoints + " - " + score)
 
   const newPoints = currentPoints - score
-  console.log(newPoints)
+  console.log("= " + newPoints)
 
   if (newPoints < 0) {
     return -1

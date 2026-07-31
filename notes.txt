@@ -10,3 +10,9 @@ sergei zubov
 andrey zubarev
 artem zub
 dainius zubrus
+
+SAME NAME PLAYERS:
+Elias Pettersson (C vs D)
+Sebastian Aho (C vs D)
+Greg Adams (no idea how to differentiate, no birth year stat. Search API?)
+Matt Murray (goalies aren't counted yet tho)

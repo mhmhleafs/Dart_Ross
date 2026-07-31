@@ -3,18 +3,17 @@ function surname(skaterFullName) {
 }
 
 $(document).ready(function () {
-	console.log("ready")
-
+	console.log("~ready")
 });
 
 $('.search_field').on("focus", function () {
-	console.log("focus")
+	console.log("~focus")
 	$(".dropdown_menu").css("visibility", "visible")
 });
 
 //if focus not on dropdown element???
 $('.search_field').on("blur", function () {
-	console.log("unfocus")
+	console.log("~unfocus")
 	$(".dropdown_menu").css("visibility", "hidden")
 });
 
@@ -26,12 +25,15 @@ $('.search_field').on('keydown', function (event) {
 });
 
 $('.dropdown_item').on('mousedown', function (event) {
-	console.log($(this).text())
+	console.log(`.${$(this).attr('class')} ${$(this).text()}`)
 });
 
-//counts as clicking go if the user presses enter on the search bar
+//update dropdown when search field is clicked or input is entered
 $('.search_field').on('input', function (event) {
-	get_players(pascalify($(this).val()))
+	console.log(get_players(pascalify($(this).val())))
+});
+$('.search_field').on('focus', function (event) {
+	console.log(get_players(pascalify($(this).val())))
 });
 
 //main game logic when user enters their search
@@ -43,7 +45,7 @@ $('#search_button').on('click', function () {
 	console.log(`Input: ${playerName}`)
 
 	//get array of players matched by last name
-	const CAT = "goals"
+	const STAT = "goals"
 
 	foundPlayers = get_players(playerName)
 
@@ -51,8 +53,9 @@ $('#search_button').on('click', function () {
 	if (foundPlayers.length == 1) {
 		console.log("found players:")
 		console.log(foundPlayers)
+		player = foundPlayers[0]
 
-		const v = get_player_stat(foundPlayers[0].playerId, CAT)
+		const v = player[STAT]
 
 		const newPoints = subtract_points(v)
 
@@ -67,7 +70,7 @@ $('#search_button').on('click', function () {
 			update_score(newPoints)
 		}
 
-		add_table_row(surname(foundPlayers[0].skaterFullName), v, oob)
+		add_table_row(surname(player.skaterFullName), v, oob)
 
 		$('.search_field').val('')
 	}
